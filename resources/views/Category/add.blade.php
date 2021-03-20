@@ -1,7 +1,8 @@
 @extends('Template.admin-layout')
 @section('noidung')
     <form method="post" action="{{route('them-category')}}">
-
+        @csrf
+        <input type="hidden" name="_token" value="{{csrf_token()}}">
         <div class="form-group">
             <label>Tên danh mục</label>
             <input type="text" name="name" class="form-control">

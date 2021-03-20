@@ -71,3 +71,9 @@ Route::post('add-category', [CategoryController::class, 'SaveCategory'])->name('
 Route::get('update-category/{id}', [CategoryController::class, 'UpdateCategory'])->name('sua-category');
 Route::post('update-category', [CategoryController::class, 'SaveUpdate'])->name('sua-category');
 Route::get('delete-category', [CategoryController::class, 'DeleteCategory']);
+
+//Route for contact
+Route::get('contacts', [\App\Http\Controllers\ContactController::class, 'Index']);
+Route::get('contact/add', [\App\Http\Controllers\ContactController::class, 'Add']);
+Route::get('contact/update', [\App\Http\Controllers\ContactController::class, 'Update']);
+Route::get('contact/delete', [\App\Http\Controllers\ContactController::class, 'Delete']);
