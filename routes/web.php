@@ -18,11 +18,11 @@ use App\Http\Controllers\CategoryController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('xt');
 
 Route::get('/hello-world', function () {
     echo 'Hello World';
-});
+})->middleware('auth');
 Route::get('/hello/it17', function () {
     echo 'Xin chào các bạn lớp IT 17';
 });
@@ -60,7 +60,7 @@ Route::get('get-users', [UserController::class, 'GetUser']);
 
 Route::get('them-san-pham', [ProductController::class,'Add']);
 
-Route::group(['prefix'=>'product'], function (){
+Route::group(['prefix'=>'product', 'middleware'=>['auth']], function (){
     Route::get('add', [ProductController::class,'Add']);
     Route::get('edit', [ProductController::class,'edit']);
 });
@@ -86,3 +86,5 @@ Route::get('kiem-tra',['middleware'=>'checkChildern', function(){
 
 Route::get('add-post', [\App\Http\Controllers\PostController::class,'Add']);
 Route::post('save-post', [\App\Http\Controllers\PostController::class,'Save'])->middleware('checkCategory');
+Route::get('dang-nhap',[\App\Http\Controllers\LoginController::class,'FormDN'])->name('login');
+Route::post('thuc-hien-dang-nhap',[\App\Http\Controllers\LoginController::class,'DangNhap']);

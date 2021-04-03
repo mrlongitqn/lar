@@ -5,6 +5,7 @@ namespace App\Http;
 use App\Http\Middleware\AbcMiddleware;
 use App\Http\Middleware\CheckCategoryMiddleware;
 use App\Http\Middleware\ChildernMiddleware;
+use App\Http\Middleware\XTMiddlerware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -67,6 +68,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'checkAge'=>AbcMiddleware::class,
         'checkChildern'=>ChildernMiddleware::class,
-        'checkCategory'=>CheckCategoryMiddleware::class
+        'checkCategory'=>CheckCategoryMiddleware::class,
+        'xt'=>XTMiddlerware::class
     ];
 }
