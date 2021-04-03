@@ -77,3 +77,12 @@ Route::get('contacts', [\App\Http\Controllers\ContactController::class, 'Index']
 Route::get('contact/add', [\App\Http\Controllers\ContactController::class, 'Add']);
 Route::get('contact/update', [\App\Http\Controllers\ContactController::class, 'Update']);
 Route::get('contact/delete', [\App\Http\Controllers\ContactController::class, 'Delete']);
+Route::get('xem-phim', function (){
+    echo 'Đã vào cổng';
+})->middleware('checkAge');
+Route::get('kiem-tra',['middleware'=>'checkChildern', function(){
+    echo  'Đã kiểm tra';
+}]);
+
+Route::get('add-post', [\App\Http\Controllers\PostController::class,'Add']);
+Route::post('save-post', [\App\Http\Controllers\PostController::class,'Save'])->middleware('checkCategory');
